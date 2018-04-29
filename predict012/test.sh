@@ -2,7 +2,7 @@ basedir=`pwd`
 labels=$basedir"/model/output_labels.txt"
 graph=$basedir"/model/output_graph.pb"
 
-file_dir="/Users/zchholmes/src_images/movedImages"
+file_dir="/Users/zchholmes/src_images/testing_images"
 
 python model/test_images.py \
 --graph=$graph \

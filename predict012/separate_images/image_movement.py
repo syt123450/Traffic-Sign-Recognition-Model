@@ -48,18 +48,18 @@ def generate_movement_list(root_path, new_path, suffix = '.jpg', ratio = 0.1):
 
     return
 
-root_path = "/Users/zchholmes/src_images/testImages"
-new_path = "/Users/zchholmes/src_images/movedImages"
-suffix = '.jpg'
-ratio = 0.1
-generate_movement_list(root_path, new_path, suffix, ratio)
+# root_path = "/Users/zchholmes/src_images/testImages"
+# new_path = "/Users/zchholmes/src_images/movedImages"
+# suffix = '.jpg'
+# ratio = 0.1
+# generate_movement_list(root_path, new_path, suffix, ratio)
 
-# print('arg_1', sys.argv[1])
-# print('arg_2', sys.argv[2])
-# print('arg_3', sys.argv[3])
-# print('arg_4', sys.argv[4])
+print('arg_1', sys.argv[1])
+print('arg_2', sys.argv[2])
+print('arg_3', sys.argv[3])
+print('arg_4', sys.argv[4])
 
-# generate_movement_list(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+generate_movement_list(sys.argv[1], sys.argv[2], sys.argv[3], float(sys.argv[4]))
 
 # print(from_list[:5])
 # print(to_list[:5])
