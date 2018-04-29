@@ -34,7 +34,9 @@ def generate_movement_list(root_path, new_path, suffix = '.jpg', ratio = 0.1):
                 image_dict[raw_id].append(sub_id)
 
         for k, v in image_dict.items():
-            ids = random.sample(range(0, len(v)), int(len(v) * ratio))
+            split_num = int(len(v) * ratio)
+            split_num = 1 if split_num == 0 else split_num
+            ids = random.sample(range(0, len(v)), split_num)
             for id in ids:
                 from_list.append(os.path.join(from_class_path[idx], str(k) + '_' + str(v[id]) + suffix))
                 to_list.append(os.path.join(to_class_path[idx], str(k) + '_' + str(v[id]) + suffix))
