@@ -1,6 +1,6 @@
 basedir=`pwd`
-labels=$basedir"/model/output_labels.txt"
-graph=$basedir"/model/output_graph.pb"
+labels="/Users/zchholmes/Desktop/255/Project/trained_models/output_labels_5.txt"
+graph="/Users/zchholmes/Desktop/255/Project/trained_models/output_graph_5.pb"
 
 file_dir="/Users/zchholmes/src_images/testing_images"
 
