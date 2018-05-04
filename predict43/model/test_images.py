@@ -110,8 +110,8 @@ def evaluate_image(image_path, graph):
     #   print(labels[i], results[i])
     return labels, results, top_k
 
-def output_static_result(total_ratio, class_count_list, correct_count_list):
-    with open('test_results.txt', 'w') as f:
+def output_static_result(total_ratio, class_count_list, correct_count_list, test_path_out):
+    with open(test_path_out, 'w') as f:
         f.write(str(total_ratio) + '\n')
         for idx in range(len(class_count_list)):
             if class_count_list[idx] > 0:
@@ -131,6 +131,8 @@ if __name__ == "__main__":
     input_std = 255
     input_layer = "input"
     output_layer = "InceptionV3/Predictions/Reshape_1"
+    test_out_path = "test_results.txt"
+    file_dir = ""
     suffix = ".jpg"
 
     parser = argparse.ArgumentParser()
@@ -143,6 +145,7 @@ if __name__ == "__main__":
     parser.add_argument("--input_std", type=int, help="input std")
     parser.add_argument("--input_layer", help="name of input layer")
     parser.add_argument("--output_layer", help="name of output layer")
+    parser.add_argument("--test_out_path", help="test results path")
     parser.add_argument("--file_dir", help="images directory")
     parser.add_argument("--suffix", help="valid images suffix with '.'")
     args = parser.parse_args()
@@ -165,20 +168,17 @@ if __name__ == "__main__":
         input_layer = args.input_layer
     if args.output_layer:
         output_layer = args.output_layer
+    if args.test_out_path:
+        test_out_path = args.test_out_path
     if args.file_dir:
-        file_root = args.file_dir
+        file_dir = args.file_dir
     if args.suffix:
         suffix = args.suffix
 
     # target_file_list, target_class_list = parse_file_path("/Users/zchholmes/src_images/movedImages", ".jpg")
-    target_file_list, target_class_list = parse_file_path(file_root, suffix)
+    target_file_list, target_class_list = parse_file_path(file_dir, suffix)
 
-    # print(target_file_list)
-    # print(len(target_file_list))
-    # print(target_class_list)
-    # print(len(target_class_list))
-
-    class_num = len(os.listdir(file_root))
+    class_num = len(os.listdir(file_dir))
     total_count = len(target_file_list)
     print(class_num)
     print(total_count)
@@ -206,8 +206,4 @@ if __name__ == "__main__":
     print(class_count_list)
     print(correct_count_list)
 
-    # print(float(correct_count/total_count))
-    # for idx in range(len(class_count_list)):
-    #     if class_count_list[idx] > 0:
-    #         print(float(correct_count_list[idx]/class_count_list[idx]))
-    output_static_result(float(correct_count/total_count), class_count_list, correct_count_list)
+    output_static_result(float(correct_count/total_count), class_count_list, correct_count_list, test_out_path)

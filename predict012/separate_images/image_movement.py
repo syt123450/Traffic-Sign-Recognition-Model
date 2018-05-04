@@ -4,7 +4,7 @@ import random
 import time
 from collections import defaultdict
 
-def generate_movement_list(root_path, new_path, suffix = '.jpg', ratio = 0.1):
+def move_files(root_path, new_path, suffix = '.jpg', ratio = 0.1):
     if ratio > 1 or ratio < 0:
         ratio = 0
 
@@ -54,12 +54,12 @@ def generate_movement_list(root_path, new_path, suffix = '.jpg', ratio = 0.1):
 # ratio = 0.1
 # generate_movement_list(root_path, new_path, suffix, ratio)
 
-print('arg_1', sys.argv[1])
-print('arg_2', sys.argv[2])
-print('arg_3', sys.argv[3])
-print('arg_4', sys.argv[4])
+print('arg_1', sys.argv[1])     # root_path
+print('arg_2', sys.argv[2])     # new_path
+print('arg_3', sys.argv[3])     # suffix
+print('arg_4', sys.argv[4])     # ratio
 
-generate_movement_list(sys.argv[1], sys.argv[2], sys.argv[3], float(sys.argv[4]))
+move_files(sys.argv[1], sys.argv[2], sys.argv[3], float(sys.argv[4]))
 
 # print(from_list[:5])
 # print(to_list[:5])

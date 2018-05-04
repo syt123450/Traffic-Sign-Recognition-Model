@@ -1,5 +1,5 @@
 BASE_DIR=`pwd`"/.."
-IMAGE_DIR=$1
+IMAGE_DIR=$BASE_DIR"/data/images/training_images"
 CURRENT_TIME=$(date "+%Y_%m_%d_%H_%M_%S")
 OUTPUT_GRAPH=$BASE_DIR"/models/output_graph.pb"
 INTERMEDIATE_OUTPUT_GRAPHS_DIR=$BASE_DIR"/data/inter_train/intermediate"
@@ -8,6 +8,7 @@ MODEL_DIR=$BASE_DIR"/data/inter_train/imagenet"
 SUMMARIES_DIR=$BASE_DIR"/data/inter_train/log"
 BOTTLENECK_DIR=$BASE_DIR"/data/inter_train/bottleneck"
 SAVED_MODEL_DIR=$BASE_DIR"/data/inter_train/saved_model/"$CURRENT_TIME
+
 source activate tensorflow
 python /Users/zchholmes/PycharmProjects/tensorflow/tensorflow/examples/image_retraining/retrain.py \
 --image_dir $IMAGE_DIR \
