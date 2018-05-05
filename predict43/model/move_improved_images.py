@@ -184,6 +184,8 @@ if __name__ == "__main__":
         to_dir = args.to_dir
     if args.suffix:
         suffix = args.suffix
+    if args.eps:
+        eps = float(args.eps)
 
     # target_file_list, target_class_list = parse_file_path("/Users/zchholmes/src_images/movedImages", ".jpg")
     target_file_list, target_to_file_list, target_class_list = parse_file_path(file_root, to_dir, suffix)
@@ -225,8 +227,8 @@ if __name__ == "__main__":
         #     print(labels[i], results[i])
     print(class_count_list)
     print(correct_count_list)
-    for idx in range(len(from_list)):
-        print(from_list[idx] + " =====> " + to_list[idx])
+    # for idx in range(len(from_list)):
+    #     print(from_list[idx] + " =====> " + to_list[idx])
     print(len(from_list))
     print(len(to_list))
 
